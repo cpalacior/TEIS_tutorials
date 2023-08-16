@@ -26,6 +26,15 @@ Route::get('/about', function () {
         ->with("author", $author);
 })->name("home.about");
 
+Route::get('/contact', function(){
+    $email = "ejemplo@ejemplo.js";
+    $number = "3012345670";
+    $direction = "cl 34 #82a-122";
+    return view('contact.index')->with("email", $email)
+        ->with("number", $number)
+        ->with("direction", $direction);
+})->name("contact.index");
+
 Route::get('/products', 'App\Http\Controllers\ProductController@index')->name("product.index");
 Route::get('/products/create', 'App\Http\Controllers\ProductController@create')->name("product.create");
 Route::post('/products/save', 'App\Http\Controllers\ProductController@save')->name("product.save");
